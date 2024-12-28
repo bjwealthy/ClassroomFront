@@ -14,7 +14,7 @@ const Login = () => {
     const [classroom, setClassroom] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:3000/teacher/classroom')
+        axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/teacher/classroom`)
             .then(result => {
                 if(result.data.Result){
                     setClassroom(result.data.Result)
@@ -29,7 +29,7 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:3000/teacher/teacherlogin', values)
+        axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/teacher/teacherlogin`, values)
             .then(result => {
                 if (result.data.loginStatus) {
                     localStorage.setItem("valid", true)

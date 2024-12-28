@@ -8,7 +8,7 @@ const ClassStudent = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get('http://localhost:3000/teacher/classlist'+class_id)
+    axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/teacher/classlist`+class_id)
       .then(result => {
         if (result.data.Status) {
           setClassStudent(result.data.Result)
@@ -17,7 +17,7 @@ const ClassStudent = () => {
   }, [])
 
   const handleDelete = (id) => {
-    axios.delete('http://localhost:3000/teacher/delete_student/'+id)
+    axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/teacher/delete_student/`+id)
     .then(result => {
       if(result.data.Status){
         window.location.reload()
@@ -56,7 +56,7 @@ const ClassStudent = () => {
                 <tr key={s.id}>
                   <td>{s.name}</td>
                   <td>
-                    <img src={"http://localhost:3000/images/" + s.image} className="student_image" alt="student_image" />
+                    <img src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/images/` + s.image} className="student_image" alt="student_image" />
                   </td>
                   <td>{s.email}</td>
                   <td>{s.classname}</td>

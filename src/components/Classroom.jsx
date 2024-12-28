@@ -6,7 +6,7 @@ const Classroom = () => {
     console.log(classroom)
 
     useEffect(() => {
-        axios.get('http://localhost:3000/teacher/classroom')
+        axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/teacher/classroom`)
             .then(result => {
                 if (result.data.Status) {
                     setClassroom(result.data.Result)

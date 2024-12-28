@@ -6,7 +6,7 @@ const Start = () => {
     const navigator = useNavigate();
     axios.defaults.withCredentials = true;
     useEffect(() => {
-        axios.get('http://localhost:3000/verify')
+        axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/verify`)
             .then(result => {
                 if (result.data.Status) {
                     if (result.data.role === 'teacher') {

@@ -8,7 +8,7 @@ const Dashboard = () => {
     axios.defaults.withCredentials = true;
 
     const handleLogOut = () => {
-        axios.get('http://localhost:3000/teacher/logout')
+        axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/teacher/logout`)
             .then(result => {
                 if (result.data.Status) {
                     localStorage.removeItem("valid")
